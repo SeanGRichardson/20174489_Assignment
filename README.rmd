@@ -1,14 +1,12 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+title: Data Science Assignment 20174489 Question 1 and Question 2
+output: pdf_document
 ---
 
 # Purpose
 
-The aim of this folder is to.... (Explain yourself here)
+This document serves as my attempt at the Data Science practical on 24 MAy
 
-Load in coding scripts
 
 ```{r}
 
@@ -20,29 +18,105 @@ p_load(tidyverse, rmsfuns)
 # Source in all your functions:
 list.files('code/', full.names = T, recursive = T) %>% as.list() %>% walk(~source(.))
 
-Result <- example_function(x = 10, y = 20)
+# Loading Data
+
+Movies_Data <- read.csv("data/Movies/Movies.csv")
 
 
 ```
+\newpage
 
+# Question 1: Profitable Movies
 
-# Data loading
+Hi friend
 
-Loading in some really crucial data here, and then producing a beautiful plot:
+Hope you're doing well. As I am the meticulous person that you know and love, I have decided to test some of the theories that came up in our last conversation.
+
+The first point I remember you making was that Rotten Tomatoes was always a great review platform, and that, if it had a rating of more than 80% on Rotten Tomatoes, audiences would rate it above 85% every time.
 
 ```{r}
 
-df_flowers <- read_rds('data/flowers.rds')
+#Plotting the audience rating of films with >80% on Rotten Tomatoes
 
-ggplot(df_flowers) +
-    geom_point(aes(Petal.Length, Petal.Width, color = Species) ) +
-               labs(title = 'Amazing plot', y = 'petal widths', x = 'petal lengths')
+Above_80_Data <- Above_80(Movies_Data)
+
+Plot_Audience_Rating(Above_80_Data)
+
 
 ```
 
-# Lastly
+As you can see, there is no reason to believe that films with a Rotten
 
-* Notice that the 'bin' folder is used for binary files (pdfs, word docs, etc)
+\newpage
 
-* 'settings' folder should be used only for human readable files that are used as user input settings files.
+Your next claim was that, whilst Disney does not have the highest grossing numbers, their films are the most profitable.
+
+I decided to___
+
+```{r}
+
+# Plotting Mean Worldwide Gross by each Studio
+
+Gross_Data <- Rank_Gross(Movies_Data)
+
+Gross_Plot(Gross_Data)
+
+
+
+```
+
+As you can see, Disney has the highest mean gross out of all the studios in my dataset. That already invalidates your first claim, but let's look at profitability.
+
+```{r}
+
+# Plotting movie profitability by studio
+
+
+Profit_Data <- Rank_Profit(Movies_Data)
+
+Profit_Plot(Profit_Data)
+
+```
+
+So I do concede that Disney is the most profitable. That means you've scored half a point out of two so far. Let's see if you can get a passing mark.
+
+\newpage
+
+```{r}
+
+#Showing correlation
+
+Cor_AW <- Movies_Data %>% summarise(Corr = cor(Audience..score.., Worldwide.Gross,
+                                               method = "spearman", use = "pairwise.complete.obs"))
+
+Cor_RW <- Movies_Data %>% summarise(Corr = cor(Rotten.Tomatoes.., Worldwide.Gross,
+                                               method = "spearman", use = "pairwise.complete.obs"))
+
+
+```
+
+
+From the data, I have observed that the correlation between audience score and worldwide gross is 0.291. This indicates weak positive correlation, going against what you said.
+
+Looking at whether Rotten Tomatoes' ratings are any better, I observe that the correlation between the RT score and gross is -0.075. This means that there is pretty much no correlation.
+
+So you are correct that audience rating is a better indicator, but it is not a good one.
+
+
+
+Overall, you were pretty wrong with your theories. I do, however, appreciate the discussion and hope that we can have more in the future.
+
+
+
+
+
+
+
+\newpage
+
+
+# Question 2: Billion
+
+
+
 
