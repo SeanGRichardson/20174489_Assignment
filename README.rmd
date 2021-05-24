@@ -115,8 +115,15 @@ Overall, you were pretty wrong with your theories. I do, however, appreciate the
 \newpage
 
 
-# Question 2: Billion
+# Question 2: Billionaires
+
+
+```{r}
+
+# Reading and combining data 
 
 
 
+
+```
 

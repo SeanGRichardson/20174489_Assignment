@@ -9,7 +9,7 @@ Above_80 <- function(Data){
   for (i in 1:nrow(Data)) {
     
     if( Data[i,1] == "(500) Days of Summer")
-      Data[i,1] <- "Days of Summer (500)"
+      Data[i,1] <- "Five Hundred Days of Summer"
     
   }
   
