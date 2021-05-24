@@ -7,7 +7,6 @@ output: pdf_document
 
 This document serves as my attempt at the Data Science practical on 24 MAy
 
-
 ```{r}
 
 rm(list = ls()) # Clean your environment:
@@ -51,7 +50,7 @@ As you can see, there is no reason to believe that films with a Rotten
 
 Your next claim was that, whilst Disney does not have the highest grossing numbers, their films are the most profitable.
 
-I decided to___
+I decided to look at the mean gross of every studio and then the mean profitability of every studio to check whether or not you are correct.
 
 ```{r}
 
